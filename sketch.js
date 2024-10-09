@@ -1,7 +1,11 @@
 // Daniel Shiffman
 // https://thecodingtrain.com/CodingChallenges/060-butterfly-wings.html
+let yoff = 1;
 
-let yoff = 0;
+// Declare RGB variables globally
+let r = 255;
+let g = 0;
+let b = 0;
 
 function setup() {
 	createCanvas(700, 700);
@@ -10,13 +14,13 @@ function setup() {
 function draw() {
 	background(300);
 	translate(width / 2, height / 2);
-	//rotate(PI / 2);
 
 	stroke(200);
-	fill(200, 300);
+	// Use the global RGB values for the fill
+	fill(r, g, b);  
 	strokeWeight(9);
 
-	let da = PI / 200;
+	let da = PI / 100;
 	let dx = 0.05;
 
 	let xoff = 0;
@@ -37,4 +41,9 @@ function draw() {
 	endShape();
 
 	yoff += 0.01;
+
+	// Update the color over time
+	r = (r + 1) % 256;
+	g = (g + 2) % 256;
+	b = (b + 3) % 256;
 }
